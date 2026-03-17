@@ -223,7 +223,7 @@ a {
 }
 
 .paper-figure-medium {
-  max-width: 900px;
+  max-width: 820px;
   margin: 0 auto;
 }
 
@@ -239,8 +239,8 @@ a {
 
 .paper-figure-small {
   display: block;
-  width: min(100%, 560px);
-  max-width: 560px;
+  width: min(100%, 520px);
+  max-width: 520px;
   margin: 0 auto;
 }
 
@@ -266,6 +266,101 @@ a {
 .hero-caption {
   margin-left: auto;
   margin-right: auto;
+}
+
+.video-groups {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.video-group-card {
+  padding: 1.5rem;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+}
+
+.video-group-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.video-group-header h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.video-group-header p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.video-toggle-btn {
+  flex-shrink: 0;
+  border: 1px solid #d7e1ef;
+  border-radius: 999px;
+  padding: 0.68rem 1rem;
+  background: #f5f8fc;
+  color: var(--primary-color);
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.video-toggle-btn:hover {
+  background: #edf3fb;
+  border-color: #ccdaee;
+}
+
+.video-feature {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.video-shell {
+  overflow: hidden;
+  border: 1px solid #ededed;
+  border-radius: 12px;
+  background: #f7f8fa;
+  box-shadow: 0 6px 18px -18px rgb(10 10 10 / 0.12);
+}
+
+.video-shell video {
+  display: block;
+  width: 100%;
+  max-height: 256px;
+  height: auto;
+  object-fit: contain;
+  background: #000;
+}
+
+.video-caption {
+  margin: 0.85rem 0 0;
+  color: var(--text-secondary);
+  font-size: 0.96rem;
+  text-align: center;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.video-grid.is-collapsed {
+  display: none;
+}
+
+.video-card {
+  min-width: 0;
 }
 
 .bibtex-header {
@@ -379,6 +474,22 @@ a:focus {
 
   .figure-block {
     padding: 1rem;
+  }
+
+  .video-group-card {
+    padding: 1rem;
+  }
+
+  .video-group-header {
+    flex-direction: column;
+  }
+
+  .video-toggle-btn {
+    width: 100%;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
   }
 
   .bibtex-header {

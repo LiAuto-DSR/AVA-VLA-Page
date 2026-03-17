@@ -56,3 +56,37 @@ window.addEventListener('scroll', function() {
     scrollButton.classList.remove('visible');
   }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const playbackVideos = document.querySelectorAll('video[data-playback-rate]');
+  playbackVideos.forEach(function(video) {
+    const playbackRate = Number(video.getAttribute('data-playback-rate'));
+    if (!Number.isNaN(playbackRate) && playbackRate > 0) {
+      video.playbackRate = playbackRate;
+      video.defaultPlaybackRate = playbackRate;
+    }
+  });
+
+  const toggleButtons = document.querySelectorAll('.video-toggle-btn');
+
+  toggleButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      const targetId = button.getAttribute('data-target');
+      const target = targetId ? document.getElementById(targetId) : null;
+
+      if (!target) {
+        return;
+      }
+
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      target.classList.toggle('is-collapsed', isExpanded);
+      button.setAttribute('aria-expanded', String(!isExpanded));
+
+      if (targetId === 'aloha-extra-videos') {
+        button.textContent = isExpanded ? 'Show 3 More' : 'Show Less';
+      } else if (targetId === 'libero-extra-videos') {
+        button.textContent = isExpanded ? 'Show 2 More' : 'Show Less';
+      }
+    });
+  });
+});
